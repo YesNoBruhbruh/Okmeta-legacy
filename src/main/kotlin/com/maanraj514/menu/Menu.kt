@@ -1,6 +1,6 @@
 package com.maanraj514.menu
 
-import com.maanraj514.toColor
+import com.maanraj514.utils.toColor
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player
