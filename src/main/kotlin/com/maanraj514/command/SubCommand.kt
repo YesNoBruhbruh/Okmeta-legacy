@@ -10,27 +10,27 @@ abstract class SubCommand {
     /*
      * The name of the command.
      */
-    abstract val name: String
+    abstract val name: String?
 
     /*
      * The aliases of the command.
      */
-    abstract val aliases: List<String?>
+    abstract val aliases: List<String?>?
 
     /*
      * The description of the command.
      */
-    abstract val description: String
+    abstract val description: String?
 
     /*
      * The syntax of the command.
      */
-    abstract val syntax: String
+    abstract val syntax: String?
 
     /*
      * The permission to use the command.
      */
-    abstract val permission: String
+    abstract val permission: String?
 
     /**
      * The perform method of the command.
