@@ -3,13 +3,7 @@ This is Okmeta-Java, but as the name suggests, this is for kotlin!
 
 ## Getting Started
 
-To use this template, follow these steps:
-
-1. Click on "Use this template" to create a new repository based on this template.
-2. Clone the repository to your local machine.
-3. Open the project in your preferred IDE.
-4. Build the project using Gradle.
-5. Run the server and test the plugin with Allrounder.
+Don't get started.
 
 ## Features
 
