@@ -151,4 +151,8 @@ class Party(private val partyUUID: UUID, private var owner: UUID) {
     fun hasRank(player: Player, partyRank: PartyRank) : Boolean {
         return players[player.uniqueId] == partyRank
     }
+
+    fun hasPlayer(player: Player): Boolean {
+        return players.containsKey(player.uniqueId)
+    }
 }

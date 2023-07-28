@@ -3,8 +3,11 @@ package com.maanraj514
 import com.maanraj514.menu.MenuListener
 import com.maanraj514.utils.toColor
 import org.bukkit.Bukkit
+import org.bukkit.command.Command
+import org.bukkit.command.CommandMap
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
+import java.lang.reflect.Field
 
 /*
  * Main class of the entire core.
@@ -48,5 +51,8 @@ abstract class Okmeta : JavaPlugin() {
         for (listener in listeners) {
             pm.registerEvents(listener!!, this)
         }
+    }
+
+    private fun registerCommands() {
     }
 }
