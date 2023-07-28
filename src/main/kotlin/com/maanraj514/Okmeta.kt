@@ -49,7 +49,7 @@ abstract class Okmeta : JavaPlugin() {
         Bukkit.getConsoleSender().sendMessage("&c[&cOkmeta&c]&c: &cThe Core has stopped!".toColor())
     }
 
-    private fun registerListeners(vararg listeners: Listener?) {
+    fun registerListeners(vararg listeners: Listener?) {
         val pm = Bukkit.getPluginManager()
 
         for (listener in listeners) {
@@ -57,7 +57,7 @@ abstract class Okmeta : JavaPlugin() {
         }
     }
 
-    private fun registerCommands(command: Command) {
+    fun registerCommands(command: Command) {
         try {
             val bukkitCommandMap: Field = Bukkit.getServer().javaClass.getDeclaredField("commandMap")
             bukkitCommandMap.isAccessible = true
