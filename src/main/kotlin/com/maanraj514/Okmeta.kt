@@ -46,7 +46,7 @@ abstract class Okmeta : JavaPlugin() {
     override fun onDisable() {
         disable()
 
-        Bukkit.getConsoleSender().sendMessage("&c[&cOkmeta&c]&c: &cThe Core has stopped!".toColor())
+        Bukkit.getConsoleSender().sendMessage("&c[&cOkmeta&c]&c: &cThe Core has stopped.".toColor())
     }
 
     fun registerListeners(vararg listeners: Listener?) {
