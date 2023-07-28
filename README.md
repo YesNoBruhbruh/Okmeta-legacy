@@ -1,5 +1,5 @@
 # Okmeta-Kotlin
-This is Okmeta-Java, but as the name suggests, this is for kotlin!
+This is Okmeta-Java, but as the name suggests, this is for kotlin!!
 
 ## Getting Started
 
