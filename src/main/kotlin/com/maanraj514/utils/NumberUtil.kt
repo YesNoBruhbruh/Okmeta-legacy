@@ -6,7 +6,6 @@ import java.text.DecimalFormat
  * Represents a number utility class used to handle numbers, parse them, etc.
  */
 object NumberUtil {
-
     /*
      * Format a number to a fancy format.
      */
@@ -14,60 +13,67 @@ object NumberUtil {
 
     /**
      * Parse a number to a fancy format.
+     *
      * @param number Number to parse
      * @return Parsed number
      */
-    fun parse(number: Int): String {
+    fun decimalFormat(number: Int): String {
         return FANCY_FORMAT.format(number.toLong())
     }
 
     /**
      * Parse a number to a fancy format.
+     *
      * @param number Number to parse
      * @return Parsed number
      */
-    fun parse(number: Long): String {
+    fun decimalFormat(number: Long): String {
         return FANCY_FORMAT.format(number)
     }
 
     /**
      * Parse a number to a fancy format.
+     *
      * @param number Number to parse
      * @return Parsed number
      */
-    fun parse(number: Double): String {
+    fun decimalFormat(number: Double): String {
         return FANCY_FORMAT.format(number)
     }
 
     /**
      * Parse a number to a fancy format.
+     *
      * @param number Number to parse
      * @return Parsed number
      */
-    fun parse(number: Float): String {
+    fun decimalFormat(number: Float): String {
         return FANCY_FORMAT.format(number.toDouble())
     }
 
     /**
      * Parse a number to a fancy format.
+     *
      * @param number Number to parse
      * @return Parsed number
      */
-    fun parse(number: Short): String {
+    fun decimalFormat(number: Short): String {
         return FANCY_FORMAT.format(number.toLong())
     }
 
     /**
      * Parse a number to a fancy format.
+     *
      * @param number Number to parse
      * @return Parsed number
      */
-    fun parse(number: Byte): String {
+    fun decimalFormat(number: Byte): String {
         return FANCY_FORMAT.format(number.toLong())
     }
 
     /**
      * This method will check if the provided text is a [Integer].
+     *
      * @param text Text to check
      * @return If the text is a [Integer]
      */
@@ -82,6 +88,7 @@ object NumberUtil {
 
     /**
      * This method will get an [Integer] from the provided text.
+     *
      * @param text Text to get the [Integer] from
      * @return [Integer] from the text
      * @throws NullPointerException If the text is not an [Integer]
@@ -92,6 +99,7 @@ object NumberUtil {
 
     /**
      * This method will check if the provided text is a [Long].
+     *
      * @param text Text to check
      * @return If the text is a [Long]
      */
@@ -106,6 +114,7 @@ object NumberUtil {
 
     /**
      * This method will get an [Long] from the provided text.
+     *
      * @param text Text to get the [Long] from
      * @return [Long] from the text
      * @throws NullPointerException If the text is not an [Long]
@@ -116,6 +125,7 @@ object NumberUtil {
 
     /**
      * This method will check if the provided text is a [Double].
+     *
      * @param text Text to check
      * @return If the text is a [Double]
      */
@@ -130,6 +140,7 @@ object NumberUtil {
 
     /**
      * This method will get an [Double] from the provided text.
+     *
      * @param text Text to get the [Double] from
      * @return [Double] from the text
      * @throws NullPointerException If the text is not an [Double]
@@ -140,6 +151,7 @@ object NumberUtil {
 
     /**
      * This method will check if the provided text is a [Float].
+     *
      * @param text Text to check
      * @return If the text is a [Float]
      */
@@ -154,6 +166,7 @@ object NumberUtil {
 
     /**
      * This method will get an [Float] from the provided text.
+     *
      * @param text Text to get the [Float] from
      * @return [Float] from the text
      * @throws NullPointerException If the text is not an [Float]
@@ -164,6 +177,7 @@ object NumberUtil {
 
     /**
      * This method will check if the provided text is a [Short].
+     *
      * @param text Text to check
      * @return If the text is a [Short]
      */
@@ -178,11 +192,120 @@ object NumberUtil {
 
     /**
      * This method will get an [Short] from the provided text.
+     *
      * @param text Text to get the [Short] from
      * @return [Short] from the text
      * @throws NullPointerException If the text is not an [Short]
      */
     fun getShort(text: String): Short? {
         return if (!isShort(text)) null else text.toShort()
+    }
+
+    /**
+     * This method will convert a number to a fancy version of
+     * the provided number such as 1st, 2nd, 3rd, 4th, etc.
+     *
+     * @param number Number to convert
+     * @return Fancy version of the number
+     */
+    fun fancy(number: Int): String {
+        return if (number % 100 >= 11 && number % 100 <= 13) {
+            decimalFormat(number) + "th"
+        } else when (number % 10) {
+            1 -> decimalFormat(number) + "st"
+            2 -> decimalFormat(number) + "nd"
+            3 -> decimalFormat(number) + "rd"
+            else -> decimalFormat(number) + "th"
+        }
+    }
+
+    /**
+     * This method will convert a number to a fancy version of
+     * the provided number such as 1st, 2nd, 3rd, 4th, etc.
+     *
+     * @param number Number to convert
+     * @return Fancy version of the number
+     */
+    fun fancy(number: Long): String {
+        return if (number % 100 >= 11 && number % 100 <= 13) {
+            decimalFormat(number) + "th"
+        } else when ((number % 10).toInt()) {
+            1 -> decimalFormat(number) + "st"
+            2 -> decimalFormat(number) + "nd"
+            3 -> decimalFormat(number) + "rd"
+            else -> decimalFormat(number) + "th"
+        }
+    }
+
+    /**
+     * This method will convert a number to a fancy version of
+     * the provided number such as 1st, 2nd, 3rd, 4th, etc.
+     *
+     * @param number Number to convert
+     * @return Fancy version of the number
+     */
+    fun fancy(number: Double): String {
+        return if (number % 100 >= 11 && number % 100 <= 13) {
+            decimalFormat(number) + "th"
+        } else when ((number % 10).toInt()) {
+            1 -> decimalFormat(number) + "st"
+            2 -> decimalFormat(number) + "nd"
+            3 -> decimalFormat(number) + "rd"
+            else -> decimalFormat(number) + "th"
+        }
+    }
+
+    /**
+     * This method will convert a number to a fancy version of
+     * the provided number such as 1st, 2nd, 3rd, 4th, etc.
+     *
+     * @param number Number to convert
+     * @return Fancy version of the number
+     */
+    fun fancy(number: Float): String {
+        return if (number % 100 >= 11 && number % 100 <= 13) {
+            number.toString() + "th"
+        } else when ((number % 10).toInt()) {
+            1 -> decimalFormat(number) + "st"
+            2 -> decimalFormat(number) + "nd"
+            3 -> decimalFormat(number) + "rd"
+            else -> decimalFormat(number) + "th"
+        }
+    }
+
+    /**
+     * This method will convert a number to a fancy version of
+     * the provided number such as 1st, 2nd, 3rd, 4th, etc.
+     *
+     * @param number Number to convert
+     * @return Fancy version of the number
+     */
+    fun fancy(number: Short): String {
+        return if (number % 100 >= 11 && number % 100 <= 13) {
+            decimalFormat(number) + "th"
+        } else when (number % 10) {
+            1 -> decimalFormat(number) + "st"
+            2 -> decimalFormat(number) + "nd"
+            3 -> decimalFormat(number) + "rd"
+            else -> decimalFormat(number) + "th"
+        }
+    }
+
+    /**
+     * This method will convert a number to a fancy version of
+     * the provided number such as 1st, 2nd, 3rd, 4th, etc.
+     *
+     * @param number Number to convert
+     * @return Fancy version of the number
+     */
+    fun fancy(number: Byte): String {
+        return if (number % 100 >= 11 && number % 100 <= 13) {
+            decimalFormat(number) + "th"
+        } else when (number % 10) {
+            1 -> decimalFormat(number) + "st"
+            2 -> decimalFormat(number) + "nd"
+            3 -> decimalFormat(number) + "rd"
+            else -> decimalFormat(number) + "th"
+        }
     }
 }
