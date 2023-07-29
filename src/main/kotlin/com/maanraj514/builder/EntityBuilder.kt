@@ -242,8 +242,10 @@ class EntityBuilder(private val entityType: EntityType) {
      * Sets the entity's name to be visible or not
      *
      * @param isVisible sets if the name is visible on the entity
+     * @return this.
      */
-    fun setNameVisible(isVisible: Boolean) {
+    fun setNameVisible(isVisible: Boolean) : EntityBuilder {
         isNameVisible = isVisible
+        return this
     }
 }
