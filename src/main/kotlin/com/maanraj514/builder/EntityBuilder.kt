@@ -44,6 +44,8 @@ class EntityBuilder(private val entityType: EntityType) {
     // if true entity is invincible, false if not.
     private var isInvincible = false
 
+    private var isNameVisible = false
+
     /**
      * Spawns the entity.
      *
@@ -64,6 +66,9 @@ class EntityBuilder(private val entityType: EntityType) {
      */
     private fun handlePostSpawn(entity: Entity) {
         entity.isCustomNameVisible = name == null
+        if (!isNameVisible){
+            entity.isCustomNameVisible = false
+        }
         entity.customName = if (name == null) "" else name!!.toColor()
         (entity as? LivingEntity)?.let { handleLivingEntity(it) }
         entity.isGlowing = isGlowing
@@ -231,5 +236,14 @@ class EntityBuilder(private val entityType: EntityType) {
     fun setName(name: String?): EntityBuilder {
         this.name = name
         return this
+    }
+
+    /**
+     * Sets the entity's name to be visible or not
+     *
+     * @param isVisible sets if the name is visible on the entity
+     */
+    fun setNameVisible(isVisible: Boolean) {
+        isNameVisible = isVisible
     }
 }
