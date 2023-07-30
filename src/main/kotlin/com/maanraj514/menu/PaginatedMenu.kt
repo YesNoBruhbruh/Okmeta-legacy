@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack
  */
 abstract class PaginatedMenu(playerMenuUtility: PlayerMenuUtility?) : Menu(playerMenuUtility!!) {
     //The items being paginated
-    protected var data: List<ItemStack>? = null
+    protected var data: List<Any>? = null
 
     //Keep track of what page the menu is on
     protected var page = 0
@@ -23,6 +23,12 @@ abstract class PaginatedMenu(playerMenuUtility: PlayerMenuUtility?) : Menu(playe
     //the index represents the index of the slot
     //that the loop is on
     protected var index = 0
+
+    /**
+     * @return A list of the data being paginated. usually this is a list of items but it can be anything
+     */
+    abstract fun getData(): List<*>?
+
 
     /**
      * @param object A single element of the data list that you do something with. It is recommended that you turn this into an item if it is not already and then put it into the inventory as you would with a normal Menu. You can execute any other logic in here as well.
@@ -104,12 +110,17 @@ abstract class PaginatedMenu(playerMenuUtility: PlayerMenuUtility?) : Menu(playe
      */
     override fun setMenuItems() {
         addMenuBorder()
-        if (data!!.isNotEmpty()) {
-            for (i in 0..<maxItemsPerPage) {
+
+        val data = getData()
+
+        if (!data.isNullOrEmpty()) {
+            for (i in 0 until maxItemsPerPage) {
                 index = maxItemsPerPage * page + i
                 println(index)
-                if (index >= data!!.size) break
-                loopCode(data!![index])
+                if (index >= data.size) break
+                if (data[index] != null) {
+                    loopCode(data[index])
+                }
             }
         }
     }
