@@ -24,7 +24,7 @@ abstract class Menu(private var playerMenuUtility: PlayerMenuUtility) : Inventor
     /**
      * @return Menu name.
      */
-    abstract var menuName: String?
+    abstract val menuName: String?
 
     /**
      * @return Inventory slots.
@@ -55,10 +55,11 @@ abstract class Menu(private var playerMenuUtility: PlayerMenuUtility) : Inventor
      * opens the inventory.
      */
     fun open() {
-        if (menuName == null){
-            menuName = "insert menu name"
+        inventory = if (menuName == null){
+            Bukkit.createInventory(this, slots)
+        }else{
+            Bukkit.createInventory(this, slots, menuName!!.toColor())
         }
-        inventory = menuName?.toColor()?.let { Bukkit.createInventory(this, slots, it) }
 
         //grab all the items specified to be used for this menu and add to inventory
         setMenuItems()
