@@ -27,8 +27,7 @@ abstract class PaginatedMenu(playerMenuUtility: PlayerMenuUtility?) : Menu(playe
     /**
      * @return A list of the data being paginated. usually this is a list of items but it can be anything
      */
-    abstract fun getData(): List<*>?
-
+    abstract fun getDatas(): List<*>?
 
     /**
      * @param object A single element of the data list that you do something with. It is recommended that you turn this into an item if it is not already and then put it into the inventory as you would with a normal Menu. You can execute any other logic in here as well.
@@ -111,7 +110,7 @@ abstract class PaginatedMenu(playerMenuUtility: PlayerMenuUtility?) : Menu(playe
     override fun setMenuItems() {
         addMenuBorder()
 
-        val data = getData()
+        val data = getDatas()
 
         if (!data.isNullOrEmpty()) {
             for (i in 0 until maxItemsPerPage) {
