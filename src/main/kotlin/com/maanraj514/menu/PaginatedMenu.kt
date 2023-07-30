@@ -141,6 +141,9 @@ abstract class PaginatedMenu(playerMenuUtility: PlayerMenuUtility?) : Menu(playe
      * @return true if successful, false if already on the last page
      */
     fun nextPage(): Boolean {
+        if (data == null){
+            return false
+        }
         return if (index + 1 < data!!.size) {
             page += 1
             reloadItems()
