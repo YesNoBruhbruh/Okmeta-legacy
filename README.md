@@ -1,7 +1,4 @@
 # Okmeta-Kotlin
-This is Okmeta-Java, but as the name suggests, this is for kotlin!!
-
-this is discontinued, check Okmeta-java for the maintained version!
 
 ## Getting Started
 
